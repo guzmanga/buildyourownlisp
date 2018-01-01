@@ -29,13 +29,42 @@ void add_history(char* unused){}
 
 
 int main(int argc, char** arvg){
+
+	/*creation of grammars.
+		a grammar describes a set of rules that define what is valid code
+	*/
+
+	//using natural grammar method
+
+	//create and name rules 
+	mpc_parser_t* Adjective = mpc_new("adjective");
+	mpc_parser_t* Noun = mpc_new("noun");
+	mpc_parser_t* Phrase = mpc_new("phrase");
+	mpc_parser_t* Doge = mpc_new("doge");
+
+	//define rules 
+	mcpa_lang(MPCA_LANG_DEFAULT,
+		"					\
+		adjective: \"wow\" | \"many\"	\
+				| \"so\" | \"such\";	\
+		noun: \"lisp\" | \"language\"	\
+			| \"book\"	| \"build\" | \"c\"; \
+		phrase : <adjective> <noun>; 	\
+		doge : <phrase>*;
+		",
+		Adjective, Noun, Phrase, Doge
+		);
+
+	mpc_cleanup(4, Adjective, Noun, Phrase, Doge);
+
+
 	/*version and exit information*/
 	puts("Lispy Version 0.0.0.0.1");
 	puts("Press Cntrl+c to Exit");
 	
 	while(1){
 		//output prompt and get input
-		char* input = readline("lispy> ");
+		char* input = readline("mylisp> ");
 		
 		//add input to history
 		add_history(input);	
