@@ -1,0 +1,353 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mpc_",
+				"mpc_parser_t"
+			],
+			[
+				"ROOM",
+				"ROOM_MIN_SIZE"
+			],
+			[
+				"random",
+				"randomNumber"
+			],
+			[
+				"emb",
+				"embargoRefactor"
+			],
+			[
+				"current",
+				"currentPlayer"
+			],
+			[
+				"council_",
+				"council_roomRefactor"
+			],
+			[
+				"game",
+				"gameState"
+			],
+			[
+				"smithy",
+				"smithyRefactor"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "mpc.c",
+			"settings":
+			{
+				"buffer_size": 102882,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "mpc.h",
+			"settings":
+			{
+				"buffer_size": 10030,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#include <stdio.h>\n#include <stdlib.h>\n#include \"mpc.h\"\n\n/*if compiling on Windows compile these functions */\n#ifdef _WIN32\n#include <string.h>\n\nstatic char buffer[2048];\n\n/*Fake readline function*/\n\nchar* readline(char* prompt){\n\tfputs(prompt, stdout);\n\tfgets(buffer, 2048, stdin);\n\tchar* cpy = malloc(strlen(buffer) + 1);\n\tstrcpy(cpy, buffer);\n\tcpy[strlen(cpy)-1] = '\\0';\n\treturn cpy\n}\n\n/*fake add_history function*/\nvoid add_history(char* unused){}\n\n#else\n#include <readline/readline.h>\n#include <readline/history.h>\n#endif\n\n\nint main(int argc, char** arvg){\n\n\tmpc_parser_t* Adjective = mpc_new(\"adjective\");\n\tmpc_parser_t* Noun = mpc_new(\"noun\");\n\tmpc_parser_t* Phrase = mpc_new(\"phrase\");\n\tmpc_parser_t* Doge = mpc_new(\"doge\");\n\n\t\n\n\n\n\n\n\t/*version and exit information*/\n\tputs(\"Lispy Version 0.0.0.0.1\");\n\tputs(\"Press Cntrl+c to Exit\");\n\t\n\twhile(1){\n\t\t//output prompt and get input\n\t\tchar* input = readline(\"mylisp> \");\n\t\t\n\t\t//add input to history\n\t\tadd_history(input);\t\n\n\t\t//echo input back to user\n\t\tprintf(\"You put: %s\\n\", input);\n\n\t\t//free retrieved input\n\t\tfree(input);\n\t}\n\n\treturn 0;\n}\n",
+			"file": "prompt.c",
+			"file_size": 1093,
+			"file_write_time": 131587837712293071,
+			"settings":
+			{
+				"buffer_size": 1096,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/gguzman/Code/roguelikedev/src/Engine.cpp",
+		"/Users/gguzman/Code/roguelikedev/src/Engine.hpp",
+		"/Users/gguzman/Code/roguelikedev/src/Map.cpp",
+		"/Users/gguzman/Code/roguelikedev/src/Map.hpp",
+		"/Users/gguzman/Code/roguelikedev/src/Actor.cpp",
+		"/Users/gguzman/Code/roguelikedev/src/Actor.hpp",
+		"/Users/gguzman/Code/roguelikedev/src/main.cpp",
+		"/Users/gguzman/Code/cleanup_final/cleanup/src/models/reports.interface.ts",
+		"/Users/gguzman/Code/CS372/Project1/chatclient.c",
+		"/Users/gguzman/Code/CS344/program2/guzmanga.adventure.c",
+		"/Users/gguzman/Code/CS344/program2/guzmanga.buildrooms.c",
+		"/Users/gguzman/Code/CS372/Project2/server.h",
+		"/Users/gguzman/Code/CS372/Project2/ftserver.c",
+		"/usr/include/servers/ls_defs.h",
+		"/Users/gguzman/Code/CS340/finalproject/examples/HTMLexample .php",
+		"/Users/gguzman/Code/CS340/finalproject/HTMLexample.php",
+		"/Users/gguzman/Code/CS464/JARVIS-on-Messenger-master/modules/src/news.py",
+		"/Users/gguzman/Code/CS340/Assignment2/Assignment2-definition-4.sql",
+		"/Users/gguzman/Code/CS362/ProjectB/projects/lej/URLValidator/src/UrlValidatorTest.java",
+		"/Users/gguzman/Code/ProjectB/URLValidator/src/UrlValidatorTest.java",
+		"/Users/gguzman/Code/CS362/ProjectB/projects/has/URLValidator/src/UrlValidatorTest.java",
+		"/Users/gguzman/Code/Intern Test/AssemblyInfo.cs",
+		"/Users/gguzman/Code/CS362/ProjectB/URLValidator/src/UrlValidatorTest.java",
+		"/Users/gguzman/Code/CS372/Project1/chatserve.py",
+		"/Users/gguzman/Desktop/cs362w17online-master/projects/guzmanga/lejDominion/dominion/badTestDrawCard.c",
+		"/Users/gguzman/Desktop/FlickrBrowser/app/src/main/java/com/timbuchalka/flickrbrowser/GetRawData.java",
+		"/Users/gguzman/Code/CS362/assignment3copy/guzmanga/dominion/cardtest1.c",
+		"/Users/gguzman/Code/CS362/cs362w17online-master/cs362w17online/dominion/dominion.c",
+		"/Users/gguzman/Desktop/Project1/chatserve.py",
+		"/Users/gguzman/Code/CS362/cs362w17online/projects/guzmanga/dominion/unittest3.c",
+		"/Users/gguzman/Downloads/randomtestingquiz2/testme.c",
+		"/Users/gguzman/Downloads/randomstring.c",
+		"/Users/gguzman/Downloads/testme.c",
+		"/Users/gguzman/adventurerRefactor.c",
+		"/Users/gguzman/Code/dominion/dominion.c",
+		"/Users/gguzman/Downloads/dominion/dominion.c",
+		"/Users/gguzman/Downloads/YoutubePlayer/app/src/main/AndroidManifest.xml",
+		"/Users/gguzman/Downloads/Top10Downloader/app/src/main/java/com/timbuchalka/top10downloader/MainActivity.java",
+		"/Users/gguzman/Code/twitbot/package.json"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "mpc.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 102882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52723,
+								52723
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 43.0,
+						"translation.y": 28622.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mpc.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 3.0,
+						"translation.y": 2742.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "prompt.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1096,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								735,
+								735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "byol.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
